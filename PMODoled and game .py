@@ -25,7 +25,8 @@ def people(x,y):
 i=1
 sleep(2)
 while 1:
-    pmodoled.write(str(ms))#游戏时间
+    pmodoled.write("s:",0,25)
+    pmodoled.write(str(ms),2,25)#游戏分数
     #移动控制
     if base.buttons[2].read()==1:
         if x<255:
@@ -47,7 +48,7 @@ while 1:
         n3=random.randint(0, 31)
         n4=random.randint(0, 31)
     s=s+1
-    if(s%100!=0):
+    if(s%122!=0):
         pmodoled.draw_line(124-s,n1,127-s,n1)
         pmodoled.draw_line(124-s,n2,127-s,n2)
         pmodoled.draw_line(124-s,n3,127-s,n3)
@@ -61,29 +62,78 @@ while 1:
             if((3+y)>(n1)):
                 pmodoled.clear()
                 pmodoled.write("game over")
-                sleep(100)
+                sleep(2)
+                pmodoled.clear()
+                pmodoled.write("play again?")
+                while 1:
+                    if base.switches[0].read():
+                        x=0
+                        y=0#人物位置
+                        ms=0#时间
+                        s=0
+                        i=1#子弹位置
+                        break
+                    else:
+                        sleep(0.5)
         if((3+y)<(n2+3)):
             if((3+y)>(n2)):
                 pmodoled.clear()
                 pmodoled.write("game over")
-                sleep(100)
+                sleep(2)
+                pmodoled.clear()
+                pmodoled.write("play again?")
+                while 1:
+                    if base.switches[0].read():
+                        x=0
+                        y=0#人物位置
+                        ms=0#时间
+                        s=0
+                        i=1#子弹位置
+                        break
+                    else:
+                        sleep(0.5)
         if((3+y)<(n3+3)):
             if((3+y)>(n3)):
                 pmodoled.clear()
                 pmodoled.write("game over")
-                sleep(100)
+                sleep(2)
+                pmodoled.clear()
+                pmodoled.write("play again?")
+                while 1:
+                    if base.switches[0].read():
+                        x=0
+                        y=0#人物位置
+                        ms=0#时间
+                        s=0
+                        i=1#子弹位置
+                        break
+                    else:
+                        sleep(0.5)
         elif((3+y)<(n4+3)):
             if((3+y)>(n4)):
                 pmodoled.clear()
                 pmodoled.write("game over")
-                sleep(100)
-            
-    sleep(0.1)
+                sleep(2)
+                pmodoled.clear()
+                pmodoled.write("play again?")
+                while 1:
+                    if base.switches[0].read():
+                        x=0
+                        y=0#人物位置
+                        ms=0#时间
+                        s=0
+                        i=1
+                        break
+                    else:
+                        sleep(0.5)
+    time=1/i        
+    sleep(time)
     pmodoled.clear()
     i=i+1
     
     if(i%10==0):
         ms=ms+1
+        
         
     
 
